@@ -2,8 +2,7 @@
   "crates": [
     {
       "id": "minecraft",
-      "blueprints": ["papermc", "forge", "fabric", "velocity"],
-      "constructs": ["papermc", "forge", "fabric", "velocity"]
+      "versions": ["papermc", "forge", "fabric", "velocity"]
     }
   ]
 }
