@@ -1,0 +1,9 @@
+{
+  "id": "minecraft",
+  "name": "Minecraft",
+  "category": "game-server",
+  "description": "The world's most popular game. Java and Bedrock editions.",
+  "logo": "",
+  "tags": ["sandbox", "survival", "multiplayer"],
+  "official": true
+}
