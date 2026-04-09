@@ -1,0 +1,79 @@
+{
+  "id": "ark-vanilla",
+  "crate": "ark",
+  "construct": "ark-vanilla",
+  "name": "ARK: Survival Evolved",
+  "description": "Standard ARK: Survival Evolved dedicated server.",
+  "logo": "",
+  "version": "1.0.0",
+  "official": true,
+  "config": [
+    {
+      "key": "SESSION_NAME",
+      "label": "Server Name",
+      "type": "string",
+      "default": "My ARK Server",
+      "required": true
+    },
+    {
+      "key": "SERVER_PASSWORD",
+      "label": "Server Password",
+      "description": "Leave empty for a public server.",
+      "type": "secret",
+      "required": false
+    },
+    {
+      "key": "ADMIN_PASSWORD",
+      "label": "Admin Password",
+      "type": "secret",
+      "required": true,
+      "auto_generate": true,
+      "auto_generate_length": 16
+    },
+    {
+      "key": "MAX_PLAYERS",
+      "label": "Max Players",
+      "type": "number",
+      "default": 20,
+      "required": false
+    },
+    {
+      "key": "MAP",
+      "label": "Map",
+      "type": "select",
+      "options": [
+        "TheIsland",
+        "TheCenter",
+        "Ragnarok",
+        "Aberration",
+        "Extinction",
+        "Valguero",
+        "CrystalIsles",
+        "GenOne",
+        "GenTwo",
+        "LostIsland",
+        "Fjordur"
+      ],
+      "default": "TheIsland",
+      "required": true
+    },
+    {
+      "key": "PVP",
+      "label": "PvP Mode",
+      "type": "boolean",
+      "default": false,
+      "required": false
+    }
+  ],
+  "resources": {
+    "memory_mb": 8192,
+    "cpu_millicores": 4000,
+    "disk_gb": 50
+  },
+  "extensions": {
+    "mod": {
+      "enabled": true,
+      "sources": ["steam-workshop", "upload"]
+    }
+  }
+}
