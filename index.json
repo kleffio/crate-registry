@@ -2,7 +2,7 @@
   "crates": [
     {
       "id": "minecraft",
-      "versions": ["papermc", "forge", "fabric", "velocity"]
+      "versions": ["vanilla", "papermc", "forge", "fabric", "velocity"]
     },
     {
       "id": "ark",
