@@ -2,7 +2,7 @@
   "id": "ark-vanilla",
   "crate": "ark",
   "blueprint": "ark-vanilla",
-  "image": "ich777/arksurvivalevolved",
+  "image": "ghcr.io/kleffio/games:ark-vanilla",
   "version": "1.0.0",
   "env": {},
   "ports": [

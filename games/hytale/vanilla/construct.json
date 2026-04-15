@@ -1,0 +1,45 @@
+{
+  "id": "hytale-vanilla",
+  "crate": "hytale",
+  "blueprint": "hytale-vanilla",
+  "image": "ghcr.io/kleffio/games:hytale-vanilla",
+  "command": "apt-get update -qq && apt-get install -y --no-install-recommends curl unzip jq && curl -fsSL https://downloader.hytale.com/hytale-downloader.zip -o hytale-downloader.zip && unzip -o hytale-downloader.zip -d hytale-downloader && mv hytale-downloader/hytale-downloader-linux-amd64 hytale-downloader/hytale-downloader-linux && chmod +x hytale-downloader/hytale-downloader-linux && ./hytale-downloader/hytale-downloader-linux -patchline ${HYTALE_PATCHLINE:-release} -download-path HytaleServer.zip && unzip -o HytaleServer.zip && java -Xms128M -Xmx${SERVER_MEMORY:-4096}M -jar Server/HytaleServer.jar --auth-mode ${HYTALE_AUTH_MODE:-authenticated} --assets Assets.zip --bind 0.0.0.0:5520",
+  "version": "1.0.0",
+  "env": {
+    "HYTALE_AUTH_MODE": "authenticated",
+    "HYTALE_PATCHLINE": "release",
+    "SERVER_MEMORY": "4096"
+  },
+  "ports": [
+    {
+      "name": "game",
+      "container": 5520,
+      "protocol": "udp",
+      "expose": true,
+      "label": "Hytale (QUIC)"
+    },
+    {
+      "name": "query",
+      "container": 5521,
+      "protocol": "udp",
+      "expose": false,
+      "label": "Query (A2S)"
+    }
+  ],
+  "runtime_hints": {
+    "kubernetes_strategy": "standard",
+    "expose_udp": true,
+    "persistent_storage": true,
+    "storage_path": "/data",
+    "storage_gb": 10,
+    "health_check_path": "",
+    "health_check_port": 0
+  },
+  "outputs": [
+    {
+      "key": "ADDRESS",
+      "description": "Server address for players to connect to.",
+      "value_template": "{{ .ContainerName }}:5520"
+    }
+  ]
+}

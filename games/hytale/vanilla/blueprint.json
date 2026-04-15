@@ -1,0 +1,48 @@
+{
+  "id": "hytale-vanilla",
+  "crate": "hytale",
+  "construct": "hytale-vanilla",
+  "name": "Hytale",
+  "description": "Official Hytale dedicated server.",
+  "logo": "",
+  "version": "1.0.0",
+  "official": true,
+  "config": [
+    {
+      "key": "SERVER_NAME",
+      "label": "Server Name",
+      "type": "string",
+      "default": "My Hytale Server",
+      "required": true
+    },
+    {
+      "key": "MAX_PLAYERS",
+      "label": "Max Players",
+      "type": "number",
+      "default": 20,
+      "required": false
+    },
+    {
+      "key": "HYTALE_AUTH_MODE",
+      "label": "Auth Mode",
+      "description": "Use 'offline' to skip Hytale account authentication (for testing).",
+      "type": "select",
+      "options": ["authenticated", "offline"],
+      "default": "authenticated",
+      "required": false
+    },
+    {
+      "key": "HYTALE_PATCHLINE",
+      "label": "Branch",
+      "type": "select",
+      "options": ["release", "pre-release"],
+      "default": "release",
+      "required": false
+    }
+  ],
+  "resources": {
+    "memory_mb": 4096,
+    "cpu_millicores": 2000,
+    "disk_gb": 10
+  }
+}

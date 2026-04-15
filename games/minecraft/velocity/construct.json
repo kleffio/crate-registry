@@ -2,7 +2,7 @@
   "id": "minecraft-velocity",
   "crate": "minecraft",
   "blueprint": "minecraft-velocity",
-  "image": "itzg/mc-proxy",
+  "image": "ghcr.io/kleffio/games:minecraft-velocity",
   "version": "1.2.0",
   "env": {
     "TYPE": "VELOCITY"

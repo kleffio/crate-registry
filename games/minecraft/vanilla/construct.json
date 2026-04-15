@@ -2,7 +2,7 @@
   "id": "minecraft-vanilla",
   "crate": "minecraft",
   "blueprint": "minecraft-vanilla",
-  "image": "itzg/minecraft-server",
+  "image": "ghcr.io/kleffio/games:minecraft-vanilla",
   "version": "1.0.0",
   "env": {
     "EULA": "TRUE",

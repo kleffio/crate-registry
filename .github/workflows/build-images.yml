@@ -1,0 +1,41 @@
+name: Build runtime images
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'images/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    strategy:
+      matrix:
+        include:
+          - context: images/base
+            tag: ghcr.io/kleffio/images:base
+          - context: images/java/21
+            tag: ghcr.io/kleffio/images:java-21
+          - context: images/java/17
+            tag: ghcr.io/kleffio/images:java-17
+          - context: images/node/20
+            tag: ghcr.io/kleffio/images:node-20
+          - context: images/python/3.12
+            tag: ghcr.io/kleffio/images:python-3.12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - uses: docker/build-push-action@v5
+        with:
+          context: ${{ matrix.context }}
+          push: true
+          tags: ${{ matrix.tag }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max

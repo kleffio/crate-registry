@@ -1,0 +1,8 @@
+{
+  "id": "terraria",
+  "name": "Terraria",
+  "description": "2D sandbox adventure game. Host your own Terraria dedicated server.",
+  "logo": "",
+  "tags": ["sandbox", "adventure", "2d", "survival", "multiplayer"],
+  "official": true
+}

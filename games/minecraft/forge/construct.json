@@ -2,7 +2,7 @@
   "id": "minecraft-forge",
   "crate": "minecraft",
   "blueprint": "minecraft-forge",
-  "image": "itzg/minecraft-server",
+  "image": "ghcr.io/kleffio/games:minecraft-forge",
   "version": "1.2.0",
   "env": {
     "EULA": "TRUE",
