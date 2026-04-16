@@ -5,7 +5,7 @@
   "name": "Hytale",
   "description": "Official Hytale dedicated server.",
   "logo": "",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "official": true,
   "config": [
     {

@@ -5,7 +5,7 @@
   "name": "Velocity",
   "description": "High-performance Minecraft proxy server.",
   "logo": "",
-  "version": "1.2.0",
+  "version": "0.1.0",
   "official": true,
   "config": [
     {

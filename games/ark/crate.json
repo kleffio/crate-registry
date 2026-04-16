@@ -1,7 +1,7 @@
 {
   "id": "ark",
   "name": "ARK: Survival Evolved",
-  "description": "Host your own ARK: Survival Evolved dedicated server with full mod and configuration support.",
+  "description": "Open-world survival game set in a prehistoric landscape filled with dinosaurs. Supports Steam Workshop mods and multiple maps.",
   "logo": "",
   "tags": ["survival", "open-world", "dinosaurs", "steam"],
   "official": true

@@ -5,7 +5,7 @@
   "name": "Fabric",
   "description": "Lightweight modded Minecraft with Fabric mod loader.",
   "logo": "",
-  "version": "1.1.0",
+  "version": "0.1.0",
   "official": true,
   "config": [
     {
