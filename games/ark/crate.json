@@ -1,0 +1,15 @@
+{
+  "id": "ark",
+  "name": "ARK: Survival Evolved",
+  "description": "Open-world survival game set in a prehistoric landscape filled with dinosaurs. Supports Steam Workshop mods and multiple maps.",
+  "logo": "",
+  "tags": ["survival", "open-world", "dinosaurs", "steam"],
+  "official": true,
+  "runtime_hints": {
+    "kubernetes_strategy": "standard",
+    "expose_udp": true,
+    "persistent_storage": true,
+    "storage_path": "/data",
+    "storage_gb": 50
+  }
+}

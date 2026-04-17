@@ -1,0 +1,77 @@
+{
+  "id": "hytale-vanilla",
+  "crate": "hytale",
+  "construct": "java-21",
+  "name": "Hytale",
+  "description": "Official Hytale dedicated server.",
+  "logo": "",
+  "version": "0.1.0",
+  "official": true,
+  "image": "ghcr.io/kleffio/constructs:java-21",
+  "env": {
+    "HYTALE_AUTH_MODE": "authenticated",
+    "HYTALE_PATCHLINE": "release",
+    "SERVER_MEMORY": "4096"
+  },
+  "ports": [
+    {
+      "name": "game",
+      "container": 5520,
+      "protocol": "udp",
+      "expose": true,
+      "label": "Hytale (QUIC)"
+    },
+    {
+      "name": "query",
+      "container": 5521,
+      "protocol": "udp",
+      "expose": false,
+      "label": "Query (A2S)"
+    }
+  ],
+  "outputs": [
+    {
+      "key": "ADDRESS",
+      "description": "Server address for players to connect to.",
+      "value_template": "{{ .ContainerName }}:5520"
+    }
+  ],
+  "config": [
+    {
+      "key": "SERVER_NAME",
+      "label": "Server Name",
+      "type": "string",
+      "default": "My Hytale Server",
+      "required": true
+    },
+    {
+      "key": "MAX_PLAYERS",
+      "label": "Max Players",
+      "type": "number",
+      "default": 20,
+      "required": false
+    },
+    {
+      "key": "HYTALE_AUTH_MODE",
+      "label": "Auth Mode",
+      "description": "Use 'offline' to skip Hytale account authentication (for testing).",
+      "type": "select",
+      "options": ["authenticated", "offline"],
+      "default": "authenticated",
+      "required": false
+    },
+    {
+      "key": "HYTALE_PATCHLINE",
+      "label": "Branch",
+      "type": "select",
+      "options": ["release", "pre-release"],
+      "default": "release",
+      "required": false
+    }
+  ],
+  "resources": {
+    "memory_mb": 4096,
+    "cpu_millicores": 2000,
+    "disk_gb": 10
+  }
+}

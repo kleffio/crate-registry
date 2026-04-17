@@ -1,0 +1,87 @@
+{
+  "id": "minecraft-fabric",
+  "crate": "minecraft",
+  "construct": "java-21",
+  "name": "Fabric",
+  "description": "Lightweight modded Minecraft with Fabric mod loader.",
+  "logo": "",
+  "version": "0.1.0",
+  "official": true,
+  "image": "ghcr.io/kleffio/constructs:java-21",
+  "constructs": {
+    "Java 21": "ghcr.io/kleffio/constructs:java-21",
+    "Java 25": "ghcr.io/kleffio/constructs:java-25"
+  },
+  "env": {
+    "MC_VERSION": "latest",
+    "FABRIC_LOADER_VERSION": "latest",
+    "MIN_MEMORY": "512M",
+    "SERVER_MEMORY": "2048M",
+    "AUTO_UPDATE": "0"
+  },
+  "ports": [
+    {
+      "name": "minecraft",
+      "container": 25565,
+      "protocol": "tcp",
+      "expose": true,
+      "label": "Minecraft (Java)"
+    },
+    {
+      "name": "rcon",
+      "container": 25575,
+      "protocol": "tcp",
+      "expose": false,
+      "label": "RCON"
+    }
+  ],
+  "outputs": [
+    {
+      "key": "ADDRESS",
+      "description": "Internal host:port.",
+      "value_template": "{{ .ContainerName }}:25565"
+    }
+  ],
+  "runtime_hints": {
+    "storage_gb": 15
+  },
+  "config": [
+    {
+      "key": "VERSION",
+      "label": "Minecraft Version",
+      "type": "select",
+      "options": ["LATEST", "1.21.4", "1.20.4", "1.20.1"],
+      "default": "LATEST",
+      "required": true
+    },
+    {
+      "key": "MAX_PLAYERS",
+      "label": "Max Players",
+      "type": "number",
+      "default": 20,
+      "required": false
+    },
+    {
+      "key": "MEMORY",
+      "label": "JVM Memory",
+      "type": "string",
+      "default": "3G",
+      "required": false
+    }
+  ],
+  "resources": {
+    "memory_mb": 3072,
+    "cpu_millicores": 2000,
+    "disk_gb": 15
+  },
+  "extensions": {
+    "mod": {
+      "enabled": true,
+      "sources": ["modrinth", "curseforge", "github-release", "upload"],
+      "install_method": "jar-drop",
+      "install_path": "/data/mods/",
+      "file_extension": ".jar",
+      "requires_restart": true
+    }
+  }
+}

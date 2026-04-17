@@ -1,12 +1,29 @@
 {
-  "crates": [
-    {
-      "id": "minecraft",
-      "versions": ["vanilla", "papermc", "forge", "fabric", "velocity"]
-    },
-    {
-      "id": "ark",
-      "versions": ["vanilla"]
-    }
+  "games": [
+    { "id": "minecraft", "versions": ["vanilla", "papermc", "forge", "fabric", "velocity"] },
+    { "id": "terraria",  "versions": ["vanilla"] },
+    { "id": "ark",       "versions": ["vanilla"] },
+    { "id": "hytale",    "versions": ["vanilla"] }
+  ],
+  "databases": [
+    { "id": "postgres", "versions": ["16"] },
+    { "id": "mariadb",  "versions": ["11"] },
+    { "id": "mongodb",  "versions": ["7"] }
+  ],
+  "cache": [
+    { "id": "redis",     "versions": ["7"] },
+    { "id": "memcached", "versions": ["latest"] }
+  ],
+  "storage": [
+    { "id": "minio", "versions": ["latest"] }
+  ],
+  "web": [
+    { "id": "nginx", "versions": ["stable"] },
+    { "id": "caddy", "versions": ["2"] }
+  ],
+  "apps": [
+    { "id": "node",   "versions": ["20"] },
+    { "id": "python", "versions": ["3.12"] },
+    { "id": "php",    "versions": ["8.3"] }
   ]
 }

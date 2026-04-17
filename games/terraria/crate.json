@@ -1,0 +1,21 @@
+{
+  "id": "terraria",
+  "name": "Terraria",
+  "description": "2D sandbox survival and exploration game. Host a dedicated server for up to 255 players.",
+  "logo": "",
+  "tags": [
+    "sandbox",
+    "adventure",
+    "2d",
+    "survival",
+    "multiplayer"
+  ],
+  "official": true,
+  "runtime_hints": {
+    "kubernetes_strategy": "standard",
+    "expose_udp": false,
+    "persistent_storage": true,
+    "storage_path": "/data",
+    "storage_gb": 5
+  }
+}

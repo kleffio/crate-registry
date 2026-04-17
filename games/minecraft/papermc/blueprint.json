@@ -1,0 +1,124 @@
+{
+  "id": "minecraft-papermc",
+  "crate": "minecraft",
+  "construct": "java-21",
+  "name": "PaperMC",
+  "description": "High-performance Minecraft server fork with plugin support.",
+  "logo": "",
+  "version": "0.1.0",
+  "official": true,
+  "image": "ghcr.io/kleffio/constructs:java-21",
+  "constructs": {
+    "Java 21": "ghcr.io/kleffio/constructs:java-21",
+    "Java 25": "ghcr.io/kleffio/constructs:java-25"
+  },
+  "env": {
+    "MC_VERSION": "latest",
+    "MIN_MEMORY": "512M",
+    "SERVER_MEMORY": "2048M",
+    "AUTO_UPDATE": "0"
+  },
+  "ports": [
+    {
+      "name": "minecraft",
+      "container": 25565,
+      "protocol": "tcp",
+      "expose": true,
+      "label": "Minecraft (Java)"
+    },
+    {
+      "name": "rcon",
+      "container": 25575,
+      "protocol": "tcp",
+      "expose": false,
+      "label": "RCON"
+    },
+    {
+      "name": "query",
+      "container": 25565,
+      "protocol": "udp",
+      "expose": true,
+      "label": "Query"
+    }
+  ],
+  "outputs": [
+    {
+      "key": "ADDRESS",
+      "description": "Internal host:port for other services to connect to.",
+      "value_template": "{{ .ContainerName }}:25565"
+    },
+    {
+      "key": "RCON_ADDRESS",
+      "description": "RCON host:port.",
+      "value_template": "{{ .ContainerName }}:25575"
+    }
+  ],
+  "runtime_hints": {
+    "expose_udp": true
+  },
+  "config": [
+    {
+      "key": "VERSION",
+      "label": "Minecraft Version",
+      "type": "select",
+      "options": ["LATEST", "1.21.4", "1.21.3", "1.20.4", "1.20.1"],
+      "default": "LATEST",
+      "required": true
+    },
+    {
+      "key": "DIFFICULTY",
+      "label": "Difficulty",
+      "type": "select",
+      "options": ["peaceful", "easy", "normal", "hard"],
+      "default": "normal",
+      "required": false
+    },
+    {
+      "key": "MAX_PLAYERS",
+      "label": "Max Players",
+      "type": "number",
+      "default": 20,
+      "required": false
+    },
+    {
+      "key": "MOTD",
+      "label": "MOTD",
+      "description": "Message shown in the server list.",
+      "type": "string",
+      "default": "A Minecraft Server",
+      "required": false
+    },
+    {
+      "key": "RCON_PASSWORD",
+      "label": "RCON Password",
+      "type": "secret",
+      "required": false,
+      "auto_generate": true,
+      "auto_generate_length": 16
+    },
+    {
+      "key": "MEMORY",
+      "label": "JVM Memory",
+      "description": "Java heap size, e.g. 2G or 4G.",
+      "type": "string",
+      "default": "2G",
+      "required": false
+    }
+  ],
+  "resources": {
+    "memory_mb": 2048,
+    "cpu_millicores": 2000,
+    "disk_gb": 10
+  },
+  "extensions": {
+    "plugin": {
+      "enabled": true,
+      "sources": ["modrinth", "hangar", "spigotmc", "github-release", "upload"],
+      "install_method": "jar-drop",
+      "install_path": "/data/plugins/",
+      "file_extension": ".jar",
+      "config_path": "/data/plugins/",
+      "requires_restart": true
+    }
+  }
+}

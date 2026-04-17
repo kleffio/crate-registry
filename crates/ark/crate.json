@@ -1,9 +1,0 @@
-{
-  "id": "ark",
-  "name": "ARK: Survival Evolved",
-  "category": "survival",
-  "description": "Host your own ARK: Survival Evolved dedicated server with full mod and configuration support.",
-  "logo": "",
-  "tags": ["survival", "open-world", "dinosaurs", "steam"],
-  "official": true
-}

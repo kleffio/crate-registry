@@ -1,0 +1,15 @@
+{
+  "id": "minecraft",
+  "name": "Minecraft",
+  "description": "Open-world sandbox survival game. Supports Java Edition dedicated servers with vanilla, modded, and proxy configurations.",
+  "logo": "",
+  "tags": ["sandbox", "survival", "multiplayer"],
+  "official": true,
+  "runtime_hints": {
+    "kubernetes_strategy": "agones",
+    "expose_udp": false,
+    "persistent_storage": true,
+    "storage_path": "/data",
+    "storage_gb": 10
+  }
+}
