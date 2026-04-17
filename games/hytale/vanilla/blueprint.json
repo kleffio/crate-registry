@@ -1,12 +1,41 @@
 {
   "id": "hytale-vanilla",
   "crate": "hytale",
-  "construct": "hytale-vanilla",
+  "construct": "java-21",
   "name": "Hytale",
   "description": "Official Hytale dedicated server.",
   "logo": "",
   "version": "0.1.0",
   "official": true,
+  "image": "ghcr.io/kleffio/constructs:java-21",
+  "env": {
+    "HYTALE_AUTH_MODE": "authenticated",
+    "HYTALE_PATCHLINE": "release",
+    "SERVER_MEMORY": "4096"
+  },
+  "ports": [
+    {
+      "name": "game",
+      "container": 5520,
+      "protocol": "udp",
+      "expose": true,
+      "label": "Hytale (QUIC)"
+    },
+    {
+      "name": "query",
+      "container": 5521,
+      "protocol": "udp",
+      "expose": false,
+      "label": "Query (A2S)"
+    }
+  ],
+  "outputs": [
+    {
+      "key": "ADDRESS",
+      "description": "Server address for players to connect to.",
+      "value_template": "{{ .ContainerName }}:5520"
+    }
+  ],
   "config": [
     {
       "key": "SERVER_NAME",

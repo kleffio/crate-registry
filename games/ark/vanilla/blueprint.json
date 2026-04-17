@@ -1,12 +1,51 @@
 {
   "id": "ark-vanilla",
   "crate": "ark",
-  "construct": "ark-vanilla",
+  "construct": "steamcmd",
   "name": "ARK: Survival Evolved",
   "description": "Standard ARK: Survival Evolved dedicated server.",
   "logo": "",
   "version": "0.1.0",
   "official": true,
+  "image": "ghcr.io/kleffio/constructs:steamcmd",
+  "env": {
+    "MAP": "TheIsland",
+    "SESSION_NAME": "ARK Server",
+    "MAX_PLAYERS": "20",
+    "SERVER_PASSWORD": "",
+    "ADMIN_PASSWORD": "changeme",
+    "AUTO_UPDATE": "0"
+  },
+  "ports": [
+    {
+      "name": "game",
+      "container": 7777,
+      "protocol": "udp",
+      "expose": true,
+      "label": "Game Port"
+    },
+    {
+      "name": "query",
+      "container": 27015,
+      "protocol": "udp",
+      "expose": true,
+      "label": "Steam Query Port"
+    },
+    {
+      "name": "rcon",
+      "container": 27020,
+      "protocol": "tcp",
+      "expose": false,
+      "label": "RCON"
+    }
+  ],
+  "outputs": [
+    {
+      "key": "ADDRESS",
+      "description": "Server address for players to connect to.",
+      "value_template": "{{ .ContainerName }}:7777"
+    }
+  ],
   "config": [
     {
       "key": "SESSION_NAME",
@@ -73,7 +112,10 @@
   "extensions": {
     "mod": {
       "enabled": true,
-      "sources": ["steam-workshop", "upload"]
+      "sources": ["steam-workshop", "upload"],
+      "install_method": "steam-workshop",
+      "install_path": "/ark/ShooterGame/Content/Mods/",
+      "requires_restart": true
     }
   }
 }

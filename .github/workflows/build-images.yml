@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'images/**'
+      - 'constructs/**'
 
 jobs:
   build:
@@ -15,16 +15,20 @@ jobs:
     strategy:
       matrix:
         include:
-          - context: images/base
-            tag: ghcr.io/kleffio/images:base
-          - context: images/java/21
-            tag: ghcr.io/kleffio/images:java-21
-          - context: images/java/17
-            tag: ghcr.io/kleffio/images:java-17
-          - context: images/node/20
-            tag: ghcr.io/kleffio/images:node-20
-          - context: images/python/3.12
-            tag: ghcr.io/kleffio/images:python-3.12
+          - context: constructs/base
+            tag: ghcr.io/kleffio/constructs:base
+          - context: constructs/java/21
+            tag: ghcr.io/kleffio/constructs:java-21
+          - context: constructs/java/25
+            tag: ghcr.io/kleffio/constructs:java-25
+          - context: constructs/java/17
+            tag: ghcr.io/kleffio/constructs:java-17
+          - context: constructs/steamcmd
+            tag: ghcr.io/kleffio/constructs:steamcmd
+          - context: constructs/node/20
+            tag: ghcr.io/kleffio/constructs:node-20
+          - context: constructs/python/3.12
+            tag: ghcr.io/kleffio/constructs:python-3.12
     steps:
       - uses: actions/checkout@v4
       - uses: docker/login-action@v3

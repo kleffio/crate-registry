@@ -1,12 +1,37 @@
 {
   "id": "terraria-vanilla",
   "crate": "terraria",
-  "construct": "terraria-vanilla",
+  "construct": "steamcmd",
   "name": "Terraria",
   "description": "Official Terraria dedicated server.",
   "logo": "",
   "version": "0.1.0",
   "official": true,
+  "image": "ghcr.io/kleffio/constructs:steamcmd",
+  "env": {
+    "WORLD": "World",
+    "AUTOCREATE": "2",
+    "DIFFICULTY": "0",
+    "MAXPLAYERS": "8",
+    "PASSWORD": "",
+    "AUTO_UPDATE": "0"
+  },
+  "ports": [
+    {
+      "name": "game",
+      "container": 7777,
+      "protocol": "tcp",
+      "expose": true,
+      "label": "Terraria"
+    }
+  ],
+  "outputs": [
+    {
+      "key": "ADDRESS",
+      "description": "Server address for players to connect to.",
+      "value_template": "{{ .ContainerName }}:7777"
+    }
+  ],
   "config": [
     {
       "key": "TERRARIA_VERSION",
@@ -28,7 +53,11 @@
       "label": "World Size",
       "description": "Auto-create a new world at this size if none exists.",
       "type": "select",
-      "options": ["1", "2", "3"],
+      "options": [
+        "1",
+        "2",
+        "3"
+      ],
       "default": "2",
       "required": false
     },
@@ -36,7 +65,12 @@
       "key": "DIFFICULTY",
       "label": "World Difficulty",
       "type": "select",
-      "options": ["0", "1", "2", "3"],
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
       "default": "0",
       "required": false
     },

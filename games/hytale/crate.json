@@ -4,5 +4,12 @@
   "description": "Upcoming adventure and creation game by Hypixel Studios. Server support is in preview pending official release.",
   "logo": "",
   "tags": ["adventure", "sandbox", "rpg", "multiplayer"],
-  "official": true
+  "official": true,
+  "runtime_hints": {
+    "kubernetes_strategy": "standard",
+    "expose_udp": true,
+    "persistent_storage": true,
+    "storage_path": "/data",
+    "storage_gb": 10
+  }
 }
