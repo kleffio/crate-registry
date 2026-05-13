@@ -5,6 +5,7 @@
   "name": "Forge",
   "description": "Modded Minecraft with Forge mod loader.",
   "logo": "",
+  "background": "https://raw.githubusercontent.com/kleffio/crate-registry/main/games/minecraft/background.jpg",
   "version": "0.1.0",
   "official": true,
   "image": "ghcr.io/kleffio/constructs:java-21",
