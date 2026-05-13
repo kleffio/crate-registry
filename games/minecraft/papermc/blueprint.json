@@ -5,6 +5,7 @@
   "name": "PaperMC",
   "description": "High-performance Minecraft server fork with plugin support.",
   "logo": "",
+  "background": "https://raw.githubusercontent.com/kleffio/crate-registry/main/games/minecraft/background.jpg",
   "version": "0.1.0",
   "official": true,
   "image": "ghcr.io/kleffio/constructs:java-21",
@@ -110,10 +111,11 @@
     "cpu_millicores": 2000,
     "disk_gb": 10
   },
+  "modloader": "paper",
   "extensions": {
     "plugin": {
       "enabled": true,
-      "sources": ["modrinth", "hangar", "spigotmc", "github-release", "upload"],
+      "sources": ["modrinth", "hangar", "spiget", "github-release", "upload"],
       "install_method": "jar-drop",
       "install_path": "/data/plugins/",
       "file_extension": ".jar",

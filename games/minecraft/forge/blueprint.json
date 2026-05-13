@@ -5,6 +5,7 @@
   "name": "Forge",
   "description": "Modded Minecraft with Forge mod loader.",
   "logo": "",
+  "background": "https://raw.githubusercontent.com/kleffio/crate-registry/main/games/minecraft/background.jpg",
   "version": "0.1.0",
   "official": true,
   "image": "ghcr.io/kleffio/constructs:java-21",
@@ -81,10 +82,11 @@
     "cpu_millicores": 2000,
     "disk_gb": 20
   },
+  "modloader": "forge",
   "extensions": {
     "mod": {
       "enabled": true,
-      "sources": ["modrinth", "curseforge", "github-release", "upload"],
+      "sources": ["modrinth", "github-release", "upload"],
       "install_method": "jar-drop",
       "install_path": "/data/mods/",
       "file_extension": ".jar",

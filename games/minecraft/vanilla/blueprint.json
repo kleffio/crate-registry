@@ -4,6 +4,7 @@
   "name": "Vanilla",
   "description": "Official Minecraft Java Edition server, unmodified.",
   "logo": "",
+  "background": "https://raw.githubusercontent.com/kleffio/crate-registry/main/games/minecraft/background.jpg",
   "version": "0.1.0",
   "official": true,
   "image": "ghcr.io/kleffio/constructs:java-21",
@@ -115,6 +116,7 @@
       "required": false
     }
   ],
+  "modloader": "vanilla",
   "resources": {
     "memory_mb": 2048,
     "cpu_millicores": 2000,
